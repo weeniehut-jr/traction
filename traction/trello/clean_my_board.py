@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, render_template, request
+    Blueprint, render_template, request, url_for
 )
 import json
 
@@ -12,4 +12,4 @@ def trelloConnectorHead():
 @bp.route('/connector', methods=['POST'])
 def trelloConnector():
     #TODO
-    return render_template('trello/clean_my_board/index.html')
+    return render_template('trello/clean_my_board/index.html.j2')
