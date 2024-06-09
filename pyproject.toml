@@ -24,7 +24,9 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+  "flask"
+]
 
 [project.urls]
 Documentation = "https://github.com/michael-cox/traction#readme"
@@ -34,12 +36,16 @@ Source = "https://github.com/michael-cox/traction"
 [tool.hatch.version]
 path = "traction/__about__.py"
 
+[tool.hatch.envs.default]
+[tool.hatch.envs.default.scripts]
+debug = "flask --app traction run --debug"
+
 [tool.hatch.envs.types]
 extra-dependencies = [
   "mypy>=1.0.0",
 ]
 [tool.hatch.envs.types.scripts]
-check = "mypy --install-types --non-interactive {args:src/traction tests}"
+check = "mypy --install-types --non-interactive {args:traction tests}"
 
 [tool.coverage.run]
 source_pkgs = ["traction", "tests"]
