@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CleanMyBoard Settings</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://p.trellocdn.com/power-up.css" />
+        <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <li v-for="list in listConfig">
+
+            </li>
+        </div>
+        <script type="module">
+            import { createApp, ref, reactive, computed } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+            var t = TrelloPowerUp.iframe(
+                {
+                    appName: "CleanMyBoard",
+                    appAuthor: "Michael Cox",
+                    appKey: ''
+                }
+            )
+
+            async function getPowerUpToken() {
+                return t.getRestApi().isAuthorized
+            }
+
+            async function getTrelloLists() {
+                
+            }
+
+            async function getListConfig() {
+                return t.get('board', 'shared', 'listConfig', [])
+            }
+
+            createApp({
+                setup() {
+                    const listConfig = ref([]);
+
+                    const renderListConfig = computed(getListConfig)
+
+                    }
+                }
+            }).mount('#')
+        </script>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="" async defer></script>
+    </body>
+</html>

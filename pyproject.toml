@@ -25,7 +25,9 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dependencies = [
-  "flask"
+  "flask>=3.0.3",
+  "gunicorn>=23.0.0"
+
 ]
 
 [project.urls]
