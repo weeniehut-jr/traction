@@ -3,7 +3,7 @@ name: CI/CD Pipeline for Flask to Elastic Beanstalk
 on:
   push:
     branches:
-      - devel  # This is where you specify which branch triggers the workflow
+      - main  # This is where you specify which branch triggers the workflow
 
 jobs:
   deploy:
